@@ -4,10 +4,24 @@
 
 <div id="publishers">
   <% @publishers.each do |publisher| %>
-    <%= render publisher %>
-    <p>
-      <%= link_to "Show this publisher", publisher %>
-    </p>
+    <table class="table-fixed">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Key</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= publisher.name %></td>
+          <td><%= publisher.key %></td>
+          <td><%= publisher.status %></td>
+          <td><%= link_to "Show this publisher", publisher %></td>
+        </tr>
+      </tbody>
+    </table>
   <% end %>
 </div>
 
