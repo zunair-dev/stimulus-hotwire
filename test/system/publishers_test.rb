@@ -16,7 +16,6 @@ class PublishersTest < ApplicationSystemTestCase
 
     fill_in "Key", with: @publisher.key
     fill_in "Name", with: @publisher.name
-    fill_in "Status", with: @publisher.status
     click_on "Create Publisher"
 
     assert_text "Publisher was successfully created"
@@ -29,7 +28,6 @@ class PublishersTest < ApplicationSystemTestCase
 
     fill_in "Key", with: @publisher.key
     fill_in "Name", with: @publisher.name
-    fill_in "Status", with: @publisher.status
     click_on "Update Publisher"
 
     assert_text "Publisher was successfully updated"

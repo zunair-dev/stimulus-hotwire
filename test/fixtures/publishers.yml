@@ -3,9 +3,7 @@
 one:
   name: MyString
   key: MyString
-  status: 1
 
 two:
   name: MyString
   key: MyString
-  status: 1

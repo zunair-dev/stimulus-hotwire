@@ -17,7 +17,7 @@ class PublishersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create publisher" do
     assert_difference("Publisher.count") do
-      post publishers_url, params: { publisher: { key: @publisher.key, name: @publisher.name, status: @publisher.status } }
+      post publishers_url, params: { publisher: { key: @publisher.key, name: @publisher.name } }
     end
 
     assert_redirected_to publisher_url(Publisher.last)
@@ -34,7 +34,7 @@ class PublishersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update publisher" do
-    patch publisher_url(@publisher), params: { publisher: { key: @publisher.key, name: @publisher.name, status: @publisher.status } }
+    patch publisher_url(@publisher), params: { publisher: { key: @publisher.key, name: @publisher.name } }
     assert_redirected_to publisher_url(@publisher)
   end
 
