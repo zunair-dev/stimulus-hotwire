@@ -3,12 +3,44 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Publishers</h1>
-    <%= link_to 'New publisher', new_publisher_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
 
-  <div id="publishers" class="min-w-full">
-    <%= render @publishers %>
-  </div>
+  <div class="grid grid-cols-2 gap-2">
+    <div>
+      <div class="flex justify-between items-center">
+        <h1 class="font-bold text-4xl">Publishers</h1>
+        <%= link_to 'New publisher', new_publisher_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      </div>
+
+      <div id="publishers" class="min-w-full">
+        <% @publishers.each do |publisher| %>
+          <div id="<%= dom_id publisher %>">
+            <p class="my-5">
+              <strong class="block font-medium mb-1">Name:</strong>
+              <%= publisher.name %>
+            </p>
+
+            <p class="my-5">
+              <strong class="block font-medium mb-1">Key:</strong>
+              <%= publisher.key %>
+            </p>
+
+            <% if action_name != "show" %>
+              <%= link_to "Show this publisher", publisher, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+              <%= link_to 'Edit this publisher', edit_publisher_path(publisher), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+              <hr class="mt-6">
+            <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <div class="mx-auto md:w-2/3 w-full">
+        <h1 class="font-bold text-4xl">New publisher</h1>
+
+        <%# render "form", publisher: @publisher %>
+
+        <%= link_to 'Back to publishers', publishers_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </div>
+    </div>
+  </div>  
 </div>
